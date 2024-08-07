@@ -27,5 +27,8 @@ class Songs(models.Model):
     image=models.ImageField(upload_to='images/')
     albom=models.ForeignKey(Albom,on_delete=models.CASCADE)
 
+    def get_queryset(self):
+        return Songs.objects.order_by('id')
+
     def __str__(self):
         return self.title

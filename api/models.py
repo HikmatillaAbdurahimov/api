@@ -30,5 +30,9 @@ class Songs(models.Model):
     def get_queryset(self):
         return Songs.objects.order_by('id')
 
+    def get_full_name(self):
+        return f"{self.title} {self.albom}"
+
+
     def __str__(self):
-        return self.title
+        return self.get_full_name()
